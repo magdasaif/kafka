@@ -2,7 +2,7 @@
 84
 __consumer_offsets 43 0
 __consumer_offsets 30 0
-docker-connect-debezium-status 3 2
+docker-connect-debezium-status 3 22
 __consumer_offsets 32 0
 docker-connect-debezium-offsets 6 0
 docker-connect-debezium-offsets 12 0
@@ -22,13 +22,13 @@ docker-connect-debezium-offsets 21 0
 __consumer_offsets 45 0
 __consumer_offsets 10 0
 __consumer_offsets 11 0
-__consumer_offsets 36 4
+__consumer_offsets 36 24
 __consumer_offsets 20 0
 __consumer_offsets 18 0
 __consumer_offsets 48 0
 docker-connect-debezium-offsets 19 0
-docker-connect-debezium-configs 0 4
-docker-connect-debezium-status 1 2
+docker-connect-debezium-configs 0 14
+docker-connect-debezium-status 1 22
 docker-connect-debezium-offsets 5 0
 __consumer_offsets 23 0
 docker-connect-debezium-offsets 23 0
@@ -40,7 +40,7 @@ __consumer_offsets 1 0
 __consumer_offsets 38 0
 docker-connect-debezium-offsets 16 0
 __consumer_offsets 14 0
-__consumer_offsets 29 2
+__consumer_offsets 29 22
 __consumer_offsets 0 0
 __consumer_offsets 6 0
 __consumer_offsets 35 0
@@ -69,7 +69,7 @@ __consumer_offsets 16 0
 docker-connect-debezium-offsets 15 0
 docker-connect-debezium-offsets 8 0
 __consumer_offsets 44 0
-_schemas 0 3
+_schemas 0 23
 docker-connect-debezium-offsets 24 0
 __consumer_offsets 47 0
 docker-connect-debezium-offsets 10 0
@@ -79,7 +79,7 @@ __consumer_offsets 22 0
 docker-connect-debezium-offsets 11 0
 docker-connect-debezium-offsets 13 0
 __consumer_offsets 46 0
-__consumer_offsets 31 0
+__consumer_offsets 31 21
 __consumer_offsets 5 0
 __consumer_offsets 15 0
 __consumer_offsets 34 0

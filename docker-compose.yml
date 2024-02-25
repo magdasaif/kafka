@@ -1,5 +1,82 @@
 version: '3'
 services:
+    # kafka_producer_php:
+    #     image: anamhossain/php-kafka:latest
+    #     volumes:
+    #     - ./:/var/www/
+    #     environment:
+    #         DB_CONNECTION: mysql
+    #         DB_HOST: kafka_producer_mysql_db
+    #         DB_PORT: 3306
+    #         KAFKA_BROKERS: kafka:9092
+    #     # networks:
+    #     # - default
+    #     # - proxynet
+
+    # kafka_producer_nginx:
+    #     image: anamhossain/php-nginx:latest
+    #     environment:
+    #         NGINX_ROOT: "/var/www/public"
+    #         NGINX_FPM_HOST: kafka_producer_php
+    #     ports:
+    #     - 8700:80
+    #     depends_on:
+    #     - kafka_producer_php
+    #     - zookeeper
+    #     - kafka
+    #     # networks:
+    #     # - default
+    #     # - proxynet
+
+    # kafka_producer_mysql_db:
+    #     image: mysql:5
+    #     restart: always
+    #     environment:
+    #         MYSQL_DATABASE: laravel
+    #         MYSQL_ROOT_PASSWORD: E8UQxEFic
+    #         MYSQL_USER: laravel
+    #         MYSQL_PASSWORD: laravel
+    #     ports:
+    #     - "3404:3306"
+    #     volumes:
+    #     - "./storage/db-data:/var/lib/mysql"
+
+
+    producer:
+        container_name: producer
+        build:
+            context: .
+            dockerfile: ./docker/Dockerfile
+        entrypoint: sh -c " php-fpm"
+        restart: unless-stopped
+        volumes:
+            - ./:/var/www/
+        environment:
+            - APP_ENV=local
+            - APP_KEY=base64:7t3iJGYKu1jqjeEQixGEL8mXwCr6XgVRmd6ryRII3Jo=
+            - APP_DEBUG=true
+            - DB_CONNECTION=mysql
+            - DB_HOST=mysql
+            - DB_PORT=3306
+            - MYSQL_ROOT_PASSWORD=qeD54Rumrt9OSUhaER5I1nTzeF0v2jX6ZKdEyOjehO8tCT2Yk6wxuayrdb3rd8e5rI5sV5i8HkAr3CqOJl1qpIWbLnLweznl7A5BqsdG2QnZWR3xbKBKKpN3xnTeJye2
+            - KAFKA_BROKERS=kafka:9092
+        networks:
+            - default
+
+    api:
+        container_name: producer-api
+        image: nginx:1.23
+        volumes:
+        - ./:/var/www/
+        - ./docker/nginx/conf.d:/etc/nginx/conf.d
+        ports:
+        - 8011:80
+        depends_on:
+        - producer
+        - kafka
+        networks:
+            - default
+
     zookeeper:
         image: confluentinc/cp-zookeeper:6.2.0
         container_name: zookeeper
