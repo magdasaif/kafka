@@ -49,14 +49,14 @@ Route::get('/produce', function () {
 Route::get('/consume', function () {
     return 'yyyyy';
     //===========================================================================
-    $consumer = Kafka::createConsumer(['movies'])
-            /*->withHandler(function (KafkaConsumerMessage $message) {
-                // event(new MovieDataReceived(json_encode($message->getBody())));
-                $this->info('Received message: ' . json_encode($message->getBody()));
-            })*/->build();
+    // $consumer = Kafka::createConsumer(['movies'])
+    //         /*->withHandler(function (KafkaConsumerMessage $message) {
+    //             // event(new MovieDataReceived(json_encode($message->getBody())));
+    //             $this->info('Received message: ' . json_encode($message->getBody()));
+    //         })*/->build();
 
-    $consumer->consume();
-    return 'consumn done';
+    // $consumer->consume();
+    // return 'consumn done';
     //===========================================================================
         
     $consumer = Kafka::createConsumer(['test-topic'], 'group-id', 'localhost:9092')->build();
